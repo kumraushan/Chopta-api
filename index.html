@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Chopta</title>
+	<style media="screen">
+		h1{
+			text-align: center;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+
+	</header>
+<h1>Details</h1>
+
+<h2 id='detail'></h2>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+	var resp = prompt("enter the place number");
+    axios.get(`http://node.uttarakhandtraveller.com/places/${resp}`)
+    .then((response)=>{
+        console.log(response)
+        let Details = document.getElementById('detail');
+        Details.innerText = response.data.place.detail;
+    })
+</script>
+</html>
